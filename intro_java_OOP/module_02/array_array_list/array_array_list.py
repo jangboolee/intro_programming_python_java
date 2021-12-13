@@ -22,7 +22,7 @@ class ArrayAndArrayList:
     def max_array(self):
         """Return a list of every occurence of the max number"""
 
-        return [i for i in self.array if i == max(self.array)]
+        return [i for i in self.array if i == max(self.array)] if len(self.array) > 0 else None 
 
     
     def swap_zero(self):
