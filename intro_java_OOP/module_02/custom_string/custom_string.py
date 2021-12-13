@@ -81,34 +81,3 @@ class CustomString:
                     filtered.append(char)
 
         return ''.join(filtered)
-
-
-if __name__ == "__main__":
-
-    # --- Instantiate classes ---    
-    a = CustomString()
-    a.set_string('HELLO WORLD, Python is much simpler than Java')
-
-    b = CustomString()
-    b.set_string('Hello 90, bye 2')
-
-    # --- Test remove method --- 
-    print('--------REMOVE METHOD TESTING--------')
-    removed_a = a.remove('h123poav')
-    removed_b = b.remove('h123poav')
-    print(removed_a)
-    print(removed_b)
-
-    # --- Test reverse method --- 
-    print('--------REVERSE METHOD TESTING--------')
-    reversed_a = a.reverse("pjiho1")
-    reversed_b = b.reverse("hey")
-    print(reversed_a)
-    print(reversed_b)
-
-    # --- Test filter method --- 
-    print('--------FILTER METHOD TESTING--------')
-    filtered_a = a.filter_letters('h', False)
-    filtered_b = b.filter_letters('h', True)
-    print(filtered_a)
-    print(filtered_b)
