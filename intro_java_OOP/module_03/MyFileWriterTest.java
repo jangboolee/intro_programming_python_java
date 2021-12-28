@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.assertEquals;
 
 import java.io.BufferedReader;
@@ -57,10 +55,38 @@ public class MyFileWriterTest {
 		assertEquals(expectedLines, actualLines);
 		
 
-		// TODO write at least 2 additional test cases using different MyFileWriters
-		// Recommended: A test similar to info.txt file but with personal info added
-		// Recommended: A test similar to info.txt file but with different info and personal info added
+		// 2 additional test cases using different MyFileWriters
+		// A test similar to info.txt file but with personal info added
+		actualLines.removeAll(actualLines);
+		actualLines.add("Course: MCIT_590");
+		actualLines.add("CourseID: 590");
+		actualLines.add("StudentID: 101");
+		actualLines.add("Name: Roah");
+		actualLines.add("FavoriteColor: Black");
+		actualLines.add("FavoriteNumber: 666");
 		
+		// Write to file
+		myFileWriter3.writeToFile(actualLines);
+		
+		// Read the written file to test its contents
+		expectedLines = readWrittenFile("test3_fw.txt");
+		assertEquals(expectedLines, actualLines);
+		
+		// A test similar to info.txt file but with different info and personal info added
+		actualLines.removeAll(actualLines);
+		actualLines.add("Course: MCIT_591");
+		actualLines.add("CourseID: 591");
+		actualLines.add("StudentID: 111");
+		actualLines.add("Name: Pancake");
+		actualLines.add("FavoriteColor: Yellow");
+		actualLines.add("FavoriteNumber: 2");
+		
+		// Write to file
+		myFileWriter4.writeToFile(actualLines);
+		
+		// Read the written file to test its contents
+		expectedLines = readWrittenFile("test4_fw.txt");
+		assertEquals(expectedLines, actualLines);
 	}
 	
 	/**
