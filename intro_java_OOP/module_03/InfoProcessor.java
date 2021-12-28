@@ -37,10 +37,14 @@ public class InfoProcessor {
 	 * @return course name
 	 */
 	public String getCourseName() {
-		
-		// TODO Implement method
 
-		return null;
+		String courseName = null;
+		
+		if (lines.contains("Course:")) {
+			courseName = this.getNextStringStartsWith("Course:");
+			}
+
+		return courseName;
 	}
 	
 	/**
@@ -63,9 +67,20 @@ public class InfoProcessor {
 	 */
 	public int getCourseId() {
 		
-		// TODO Implement method
+		String stringCourseId = null;
+		int courseId = 0;
 		
-		return 0;
+		if (lines.contains("CourseID:")) {
+			stringCourseId= this.getNextStringStartsWith("CourseID:");
+			try {
+				courseId = Integer.parseInt(stringCourseId);
+			}
+			catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return courseId;
 	}
 
 	/**
@@ -88,9 +103,20 @@ public class InfoProcessor {
 	 */
 	public int getStudentId() {
 		
-		// TODO Implement method
+		String stringStudentId = null;
+		int studentId = 0;
 		
-		return 0;
+		if (lines.contains("StudentID:")) {
+			stringStudentId= this.getNextStringStartsWith("StudentID:");
+			try {
+				studentId = Integer.parseInt(stringStudentId);
+			}
+			catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return studentId;
 	}
 
 	/**
@@ -115,8 +141,15 @@ public class InfoProcessor {
 	 */
 	String getNextStringStartsWith(String str) {
 		
-		// TODO Implement method
-
-		return null;
+		String nextString = null;
+		
+		if (lines.contains(str)) {
+			for (int i = 0; i < lines.size(); i++) {
+				if (lines.get(i).equals(str)) {
+					nextString = lines.get(i+1);
+				}
+			}
+		}
+		return nextString;
 	}
 }
