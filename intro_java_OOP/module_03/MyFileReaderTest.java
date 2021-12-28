@@ -50,8 +50,30 @@ public class MyFileReaderTest {
 		assertEquals(expected, actual);
 		
 
-		// TODO write at least 2 additional test cases using different new MyFileReaders
-
+		// 2 additional test cases using different new MyFileReaders
+		// test4.txt
+		actual = myFileReader4.getCleanContent();
+		expected.removeAll(expected);
+		expected.add("Course:");
+		expected.add("MCIT_594");
+		expected.add("CourseID:");
+		expected.add("594");
+		expected.add("StudentID:");
+		expected.add("8598");
+		assertEquals(expected, actual);
+		
+		// test5.txt
+		actual = myFileReader5.getCleanContent();
+		expected.removeAll(expected);
+		expected.add("Course:");
+		expected.add("MCIT_590");
+		expected.add("CourseID:");
+		expected.add("590");
+		expected.add("StudentID:");
+		expected.add("101");
+		assertEquals(expected, actual);
+		
+		
 	}
 
 }
