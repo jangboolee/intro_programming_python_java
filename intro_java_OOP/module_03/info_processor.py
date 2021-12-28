@@ -69,16 +69,16 @@ class MyFileWriter:
 
 if __name__ == "__main__":
 
-    # Initialize file reader class and get cleaned contents of the file
+    # Instantiate file reader class and get cleaned contents of the file
     reader = MyFileReader('info.txt')
     contents = reader.get_clean_content()
     
-    # Initialize info processor class and parse info
+    # Instantiate info processor class and parse info
     processor = InfoProcessor(contents)
     to_write = [processor.get_course_name(), processor.get_course_id(),
                 processor.get_student_id()]
     
-    # Initialize file writer class
+    # Instantiate file writer class
     writer = MyFileWriter('personal_info.txt')
     
     # Ask for user input and write contents to new file
