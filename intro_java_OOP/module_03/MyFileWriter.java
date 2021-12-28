@@ -1,7 +1,7 @@
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -44,7 +44,39 @@ public class MyFileWriter {
 	 */
 	public void writeToFile(ArrayList<String> words) {
 		
-		// TODO Implement method
+		//create file object
+		File file = new File(filename);
+		
+		//define file writer
+		FileWriter fileWriter = null;
+		
+		//define print writer
+		PrintWriter printWriter = null;
+		
+		try {
+			fileWriter = new FileWriter(file, false);
+			printWriter =  new PrintWriter(fileWriter);
+			
+			//iterate over arraylist of values and write each one to file
+			for (String word : words) {
+				printWriter.println(word);
+			}
+			
+			//flush memory
+			printWriter.flush();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			//regardless of what happens, close file objects
+			try {
+				fileWriter.close();
+				printWriter.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		
 	}
 }
